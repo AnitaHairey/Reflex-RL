@@ -40,10 +40,10 @@ Our training process uses parallel corpora with the following structure:
 
 ```json
 {
-	"data_source": "train",
-	 "lg": "en-zh", 
-	 "en": "I love machine translation.", 
-	 "zh": "我爱机器翻译。"
+  "data_source": "train",
+  "lg": "en-zh", 
+  "en": "I love machine translation.", 
+  "zh": "我爱机器翻译。"
 }
 ```
 
