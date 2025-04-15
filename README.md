@@ -1,5 +1,8 @@
 # MT-R1-Zero: Advancing LLM-based Machine Translation via R1-Zero-like Reinforcement Learning
 
+<a href='https://arxiv.org/abs/2504.10160'><img src='https://img.shields.io/badge/arXiv-2504.10160-b31b1b.svg'></a> &nbsp;
+
+
 ## Overview **📚**
 
 
@@ -12,6 +15,7 @@ The training dynamics are fascinating! We strongly encourage you to try our code
 ![intro.png](asset/intro.png)
 
 ## News 📢
+- **[2025/04/15] Our paper is released on arxiv: [[2504.10160] MT-R1-Zero: Advancing LLM-based Machine Translation via R1-Zero-like Reinforcement Learning ](https://arxiv.org/abs/2504.10160)  **
 - **[2025/04/14] We release the code and data of MT-R1-Zero**
 
 ## **Environment Setup 🔧**
@@ -96,5 +100,13 @@ bash main_inference_eval.sh
 ## Citation **📝**
 
 ```bash
-coming soon
+@misc{feng2025mtr1zero,
+      title={MT-R1-Zero: Advancing LLM-based Machine Translation via R1-Zero-like Reinforcement Learning}, 
+      author={Zhaopeng Feng and Shaosheng Cao and Jiahan Ren and Jiayuan Su and Ruizhe Chen and Yan Zhang and Zhe Xu and Yao Hu and Jian Wu and Zuozhu Liu},
+      year={2025},
+      eprint={2504.10160},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2504.10160}, 
+}
 ```
