@@ -15,7 +15,7 @@ The training dynamics are fascinating! We strongly encourage you to try our code
 ![intro.png](asset/intro.png)
 
 ## News 📢
-- **[2025/04/15] Our paper is released on arxiv: [[2504.10160] MT-R1-Zero: Advancing LLM-based Machine Translation via R1-Zero-like Reinforcement Learning ](https://arxiv.org/abs/2504.10160)  **
+- **[2025/04/15] Our paper is released on arxiv: [[2504.10160] MT-R1-Zero: Advancing LLM-based Machine Translation via R1-Zero-like Reinforcement Learning ](https://arxiv.org/abs/2504.10160)**  
 - **[2025/04/14] We release the code and data of MT-R1-Zero**
 
 ## **Environment Setup 🔧**
