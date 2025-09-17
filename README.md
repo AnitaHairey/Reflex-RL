@@ -22,8 +22,8 @@ The training dynamics are fascinating! We strongly encourage you to try our code
 
 
 ```bash
-conda create -n mtzero python=3.10
-conda activate mtzero
+conda create -n reflex python=3.10
+conda activate reflex
 ```
 
 ```bash
@@ -63,7 +63,7 @@ For more details, please refer to `data/process_data.py`.
 ## GRPO Training 🎬️
 
 ```bash
-conda activate mtzero
+conda activate reflex
 bash main_grpo.sh
 ```
 
@@ -93,7 +93,7 @@ Parameters:
 First, replace `BASE_MODEL_NAME`, `BASE_PATH`, `BASE_SAVE_DIR`, `comet_model_path`, and `comet_free_model_path` in `main_inference_eval.sh` with your paths.
 
 ```bash
-conda activate mtzero
+conda activate reflex
 bash main_inference_eval.sh
 ```
 

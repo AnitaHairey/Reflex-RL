@@ -30,6 +30,8 @@ def make_prefix(example, template_type, tokenizer):
 
     if template_type == 'base':
         prefix = f"""A conversation between User and Assistant. The User asks for a translation from {src_lang_name} to {tgt_lang_name}, and the Assistant solves it. The Assistant first thinks about the reasoning process in the mind and then provides the user with the final translation. The reasoning process and final translation are enclosed within <think> </think> and <translate> </translate> tags, respectively, i.e., <think> reasoning process here <translate> final translation here </translate>. \n\nUser:{user_input}\nAssistant:"""
+    elif template_type == 'reflex':
+        prefix = f"""A conversation between User and Assistant. The User asks for a translation from {src_lang_name} to {tgt_lang_name}, and the Assistant follows a reflective translation process. The Assistant first provides a draft translation, then reflects critically on the draft to identify potential issues, and finally provides a refined translation based on the reflection. The process follows this format: <draft>initial translation</draft><reflection>critical analysis of the draft</reflection><final>refined translation</final>. \n\nUser:{user_input}\nAssistant:"""
     elif template_type == 'chat':
         messages = [
         {"role": "system", "content": f"You are a helpful translation assistant. There is a conversation between User and Assistant. The user asks for a translation from {src_lang_name} to {tgt_lang_name}, and the Assistant solves it. The Assistant first thinks about the reasoning process in the mind and then provides the user with the final translation. The reasoning process and final translation are enclosed within <think> </think> and <translate> </translate> tags, respectively, i.e., <think> reasoning process here </think><translate> final translation here </translate>."},
@@ -111,7 +113,7 @@ def main():
     parser.add_argument('--train_files', nargs='+', default=['train/train_zhen_6565.jsonl', 'train/train_enzh_6565.jsonl'], help='Training JSONL files')
     parser.add_argument('--test_files', nargs='+', default=['test/wmt23_zhen.jsonl', 'test/wmt24_enzh.jsonl'], help='Test JSONL files')
     parser.add_argument('--tokenizer_path', type=str, default='../Qwen2.5-3B-Instruct', help='Path to the tokenizer')
-    parser.add_argument('--template_type', type=str, choices=['base', 'chat', 'rl'], default='chat', help='Template type for prompts')
+    parser.add_argument('--template_type', type=str, choices=['base', 'chat', 'rl', 'reflex'], default='chat', help='Template type for prompts')
     parser.add_argument('--train_sample_size', type=int, default=10000000, help='Number of training samples to use')
     parser.add_argument('--test_sample_size', type=int, default=10000000, help='Number of test samples to use')
     parser.add_argument('--train_output_file', type=str, default='train_qwen_chat.parquet', help='Output filename for train data')

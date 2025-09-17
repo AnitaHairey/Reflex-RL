@@ -14,7 +14,7 @@ python3 data/process_data.py \
     --train_files "data/train/json/train_zhen_6565.jsonl" "data/train/json/train_enzh_6565.jsonl" \
     --test_files "data/test/json/wmt23_zhen.jsonl" "data/test/json/wmt24_enzh.jsonl" \
     --tokenizer_path ${model_path} \
-    --template_type "base" \
+    --template_type "reflex" \
     --train_output_file ${train_file_path} \
     --test_output_file ${test_file_path}
 

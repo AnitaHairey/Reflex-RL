@@ -149,6 +149,11 @@ algorithm:
   comet_threshold: 90
   reward_continuous_scale: 100
   check_think: True #whether check think
+  
+  # Reflex-RL specific parameters
+  w_final: 1.0      # Weight for final quality reward
+  w_improve: 1.0    # Weight for improvement gain reward (core innovation)
+  w_critique: 1.0   # Weight for critique grounding reward
 
 trainer:
   total_epochs: 30

@@ -26,6 +26,11 @@ class RewardManager():
         self.comet_threshold = config.algorithm.comet_threshold
         self.scale_factor = config.algorithm.reward_continuous_scale
         self.check_think = config.algorithm.check_think
+        
+        # Reflex-RL specific parameters
+        self.w_final = config.algorithm.get('w_final', 1.0)
+        self.w_improve = config.algorithm.get('w_improve', 1.0)
+        self.w_critique = config.algorithm.get('w_critique', 1.0)
 
     def __call__(self, data: DataProto):
         """We will expand this function gradually based on the available datasets"""
@@ -68,7 +73,8 @@ class RewardManager():
 
             score = compute_score_fn(reward_type = self.reward_type, reward_metric = self.reward_metric, \
                 metric_score = metric_score, lg_pair=lg_pair, bleu_threshold = self.bleu_threshold, comet_threshold = self.comet_threshold, \
-                 solution_str=sequences_str, ground_truth=ground_truth, scale_factor = self.scale_factor, check_think = self.check_think)
+                 solution_str=sequences_str, ground_truth=ground_truth, scale_factor = self.scale_factor, check_think = self.check_think, \
+                 w_final = self.w_final, w_improve = self.w_improve, w_critique = self.w_critique)
 
             reward_tensor[i, valid_response_length - 1] = score
 
@@ -120,7 +126,7 @@ class ValidManager():
             compute_score_fn = _select_metric_score_fn(data_source)
 
             lg_pair = data_item.non_tensor_batch['lg']
-            score = compute_score_fn(solution_str=sequences_str, ground_truth=ground_truth,lg_pair=lg_pair)
+            score = compute_score_fn(solution_str=sequences_str, ground_truth=ground_truth,lg_pair=lg_pair, use_reflex=True)
             reward_tensor[i, valid_response_length - 1] = score
 
             if "valid_comet_metric" in data_item.batch.keys():
